@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        th {
+            font-size: 18px;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+
+<body>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th style="color: red">UUID</th>
+                    <th>Minor</th>
+                    <th>Name Product</th>
+                    <th>Price Product</th>
+                    <th>Made In</th>
+                    <th>Info</th>
+                    <th>Image</th>
+                    <th>Optional</th>
+                </tr>
+                <tr>
+                    <form action="/addBeacon" method="POST">
+                            <td>
+                                    <input type="text" placeholder="UUID" class="form-control" name="uuid">
+                                </td>
+                                <td>
+                                    <input type="text" placeholder="Minor" class="form-control" name="minor">
+                                </td>
+                                <td>
+                                    <input type="text" placeholder="Name Product" class="form-control" name="nameProduct">
+                                </td>
+                                <td>
+                                    <input type="text" placeholder="Price Product" class="form-control" name="priceProduct">
+                                </td>
+                                <td>
+                                    <input type="text" placeholder="Made In" class="form-control" name="madeIn">
+                                </td>
+                                <td>
+                                    <input type="text" placeholder="Info" class="form-control" name="info">
+                                </td>
+                                <td>
+                                    <input type="text" placeholder="Img" class="form-control" name="img">
+                                </td>
+                                <td>
+                                    <button class="btn btn-success">Add iBeacon</button>
+                                </td>
+                    </form>
+                </tr>
+            </thead>
+            <tbody>
+                <%data.forEach(e =>{%>
+                    <tr>
+                        <td>
+                            <%=e.uuid%>
+                        </td>
+                        <td>
+                            <%=e.minor%>
+                        </td>
+                        <td>
+                            <%=e.nameProduct%>
+                        </td>
+                        <td>
+                            <%=e.priceProduct%>
+                        </td>
+                        <td>
+                            <%=e.madeIn%>
+                        </td>
+                        <td>
+                            <%=e.info%>
+                        </td>
+                        <td>
+                            <img src="<%=e.img%>" class="img-rounded" width="80px" height="80px">
+                        </td>
+                        <td>
+                            <button class="btn btn-danger">Remove iBeacon</button>
+                        </td>
+                    </tr>
+                    <% })%>
+
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
